@@ -1,0 +1,22 @@
+{
+  "name": "nodejs-container",
+  "version": "1.0.0",
+  "description": "Setup nodejs container in AWS Fargate",
+  "main": "app.js",
+  "config" : {
+    "imagepostfix" : "-image",
+    "imagename" : "$npm_package_name$npm_package_config_imagepostfix",
+    "port" : "8080"
+  },
+  "scripts": {
+    "buildimage": "docker build -t $npm_package_name$npm_package_config_imagepostfix .",
+    "startimage": "docker run -d -p 8080:8080 $npm_package_name$npm_package_config_imagepostfix",
+    "stopimage": "",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Yuchi Chen",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
